@@ -14,8 +14,8 @@ public class UserTrackableFormComment {
 	private Long id;
 	private String content;
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="form_template_id")
-	private UserTrackableFormTemplate formTemplate;
+	@JoinColumn(name="form_entry_id")
+	private UserTrackableFormEntry formEntry;
 	public Long getId() {
 		return id;
 	}
@@ -25,13 +25,14 @@ public class UserTrackableFormComment {
 	public String getContent() {
 		return content;
 	}
+	public UserTrackableFormEntry getFormEntry() {
+		return formEntry;
+	}
+	public void setFormEntry(UserTrackableFormEntry formEntry) {
+		this.formEntry = formEntry;
+	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public UserTrackableFormTemplate getFormTemplate() {
-		return formTemplate;
-	}
-	public void setFormTemplate(UserTrackableFormTemplate formTemplate) {
-		this.formTemplate = formTemplate;
-	}
+	
 }
