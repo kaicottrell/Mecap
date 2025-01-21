@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+// THE Question of what is it that is being tracked? Ex. Did you go to the gym? (Content) 
 @Entity
 public class UserTrackableFormLine {
 	@Id

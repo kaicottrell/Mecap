@@ -1,4 +1,4 @@
-package com.mecap.self_tracking_backend.entities.trackableform;
+ package com.mecap.self_tracking_backend.entities.trackableform;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
