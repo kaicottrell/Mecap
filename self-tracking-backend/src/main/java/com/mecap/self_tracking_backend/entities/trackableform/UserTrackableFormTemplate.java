@@ -1,10 +1,13 @@
 package com.mecap.self_tracking_backend.entities.trackableform;
 
+import com.mecap.self_tracking_backend.enums.TemplateOccurance;
+import com.mecap.self_tracking_backend.enums.TrackableTemplateStatus;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-
+//TODO: Need default contructor with no params?
 @Entity
 public class UserTrackableFormTemplate {
 	@Id
@@ -13,6 +16,36 @@ public class UserTrackableFormTemplate {
 	private TemplateOccurance occuranceInterval;
 	private TrackableTemplateStatus status;
 	private Long userId;
+	private String name;
+	private String colorHexValue;
+	
+	public String getName() {
+		return name;
+	}
+
+	public UserTrackableFormTemplate(TemplateOccurance occuranceInterval, TrackableTemplateStatus status,
+			Long userId, String name, String colorHexValue) {
+		super();
+		this.occuranceInterval = occuranceInterval;
+		this.status = status;
+		this.userId = userId;
+		this.name = name;
+		this.colorHexValue = colorHexValue;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getColorHexValue() {
+		return colorHexValue;
+	}
+
+	public void setColorHexValue(String colorHexValue) {
+		this.colorHexValue = colorHexValue;
+	}
+
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -46,9 +79,4 @@ public class UserTrackableFormTemplate {
 		this.occuranceInterval = occurance;
 	}
 }
-enum TemplateOccurance{
-	DAILY, MONTHLY, BIMONTHLY,QUARTERLY,YEARLY
-}
-enum TrackableTemplateStatus{
-	ACTIVE, INACTIVE, REMOVED // REMOVED is a soft delete 
-}
+
