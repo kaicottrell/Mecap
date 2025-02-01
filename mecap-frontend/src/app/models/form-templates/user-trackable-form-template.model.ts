@@ -7,4 +7,5 @@ export interface UserTrackableFormTemplate{
     userId: number;
     name: string;
     colorHexValue: string;
+    description: string;
 }
