@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { UserTrackableFormTemplate } from '../models/form-templates/user-trackable-form-template.model';
 import { FormTemplateService } from '../services/form-template.service';
 //Standlone by default, meaning it does not require being declared in a NGModule
@@ -10,6 +10,7 @@ import { FormTemplateService } from '../services/form-template.service';
 })
 export class UserFormTemplatesComponent implements OnInit{
   userFormTemplateList: UserTrackableFormTemplate[] = [];
+  showNewTemplate = signal(false);
   
   constructor(private formTemplateService: FormTemplateService){
 
@@ -25,6 +26,15 @@ export class UserFormTemplatesComponent implements OnInit{
          complete: () => console.log(this.userFormTemplateList)
       }
     );
+  }
+  onShowTemplateCreation(){
+    this.showNewTemplate.set(true);
+  }
+  //TODO: bind to the form inputs with NgModel and utilize the add template function in the service.
+  // update the list of user form templates
+
+  handleNewTemplate(){
+    
   }
 
 

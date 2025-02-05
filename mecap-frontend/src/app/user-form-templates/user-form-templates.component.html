@@ -1,5 +1,11 @@
 <!-- Display a card to click into for every component-->
+ <!--TODO: make resposive-->
 <div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-success" (click)="onShowTemplateCreation()">New Template</button>
+    </div>
+  </div>
   <div class="row">
     @for(formTemplate of userFormTemplateList; track formTemplate.id){
     <div class="col-3 my-2">
@@ -14,4 +20,15 @@
     </div>
     }
   </div>
+  @if(showNewTemplate()){
+    <div class="card">
+      <form (ngSubmit)="handleNewTemplate()">
+        <!--TODO: add form grouping (bootstrap docs)-->
+        <label for="template-name">Template Name:</label>
+        <input type="text" name="template-name"/>
+        <label for="template-description">Template Description:</label>
+        <input type="text" name="template-description"/>
+      </form>
+    </div>
+  }
 </div>
