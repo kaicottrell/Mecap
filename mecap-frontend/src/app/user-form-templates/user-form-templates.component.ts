@@ -1,10 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { UserTrackableFormTemplate } from '../models/form-templates/user-trackable-form-template.model';
 import { FormTemplateService } from '../services/form-template.service';
+import { NgClass } from '@angular/common';
 //Standlone by default, meaning it does not require being declared in a NGModule
 @Component({
   selector: 'app-user-form-templates',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './user-form-templates.component.html',
   styleUrl: './user-form-templates.component.css'
 })
@@ -35,6 +36,11 @@ export class UserFormTemplatesComponent implements OnInit{
 
   handleNewTemplate(){
     
+  }
+  cancelNewTemplate(){
+    // clear all forms from reactive form (form group)
+    // close modal
+    this.showNewTemplate.set(false);
   }
 
 
