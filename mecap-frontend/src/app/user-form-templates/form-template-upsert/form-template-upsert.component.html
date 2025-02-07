@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card custom-modal d-flex w-50 h-50">
+    <div class="card-header">
+      <h1 class="text-center">New Template</h1>
+      <a
+        routerLink="../"
+        class="position-absolute top-0 end-0 mx-1"
+        title="close modal"
+      >
+        <i class="bi bi-x-circle"></i>
+    </a>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="handleNewTemplate()" [formGroup]="upsertForm">
+        <!--TODO: add form grouping (bootstrap docs)-->
+        <div class="row">
+          <div class="col-6">
+            <label for="template-name">Template Name:</label>
+            <input type="text" name="template-name" placeholder="Enter Name" />
+          </div>
+          <div class="col-6">
+            <label for="template-description">Template Description:</label>
+            <input
+              type="text"
+              name="template-description"
+              placeholder="Enter description"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer d-flex justify-content-center">
+        <a routerLink="../" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+</div>

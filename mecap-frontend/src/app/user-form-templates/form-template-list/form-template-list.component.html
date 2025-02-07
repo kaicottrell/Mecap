@@ -1,0 +1,18 @@
+<div class="row">
+    @for(formTemplate of formTemplateList; track formTemplate.id){
+    <div class="col-3 my-2">
+      <div class="card">
+        <div
+          class="card-header"
+          [style.backgroundColor]="'#' + formTemplate.colorHexValue"
+        >
+          {{ formTemplate.name + "Form" }}
+        </div>
+        <div class="card-body">
+          {{ formTemplate.description || "No Description" }}
+        </div>
+     
+      </div>
+    </div>
+    }
+</div>
