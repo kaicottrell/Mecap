@@ -11,7 +11,8 @@ import com.mecap.self_tracking_backend.entities.trackableform.UserTrackableFormT
 // Note: Spring Dynamically generates a class that implements the inteface.
 @Repository
 public interface ITrackableFormTemplateRepository extends CrudRepository<UserTrackableFormTemplate, Long> {
-	@Query("SELECT utft FROM userTrackableFormTemplate utft WHERE userId = ?")
-	List<UserTrackableFormTemplate> listByUserId(Long userId);
+	//TODO: Going to have to figure out how these type of queries work with JPA queries, this implementation throws an error.
+//	@Query("SELECT utft FROM userTrackableFormTemplate utft WHERE userId = ?")
+//	List<UserTrackableFormTemplate> listByUserId(Long userId);
 	
 }

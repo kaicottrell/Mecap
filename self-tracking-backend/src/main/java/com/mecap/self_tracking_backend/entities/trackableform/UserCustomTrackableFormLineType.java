@@ -12,6 +12,7 @@ public class UserCustomTrackableFormLineType {
 	private Long id;
 	private String content;
 	private String typeName;
+    public UserCustomTrackableFormLineType() { }
 	public String getTypeName() {
 		return typeName;
 	}

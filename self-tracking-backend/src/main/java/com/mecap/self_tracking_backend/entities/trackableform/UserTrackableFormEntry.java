@@ -19,6 +19,8 @@ public class UserTrackableFormEntry {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="form_template_id")
 	private UserTrackableFormTemplate formTemplate;
+    public UserTrackableFormEntry() { }
+
 	public Long getId() {
 		return id;
 	}

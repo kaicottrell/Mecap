@@ -17,6 +17,9 @@ public class UserCustomTrackableFormLineOption {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="line_type_id")
 	private UserCustomTrackableFormLineType lineType;
+	public UserCustomTrackableFormLineOption() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

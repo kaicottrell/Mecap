@@ -19,9 +19,9 @@ public class FormTemplateService {
 		return (ArrayList<UserTrackableFormTemplate>)trackableFormTemplateRepo.findAll();
 	}
 	//TODO: change depending on the key of the user id 
-	public List<UserTrackableFormTemplate> listByUserId(long userId){
-		return (List<UserTrackableFormTemplate>)trackableFormTemplateRepo.listByUserId(userId);
-	}
+//	public List<UserTrackableFormTemplate> listByUserId(long userId){
+//		return (List<UserTrackableFormTemplate>)trackableFormTemplateRepo.listByUserId(userId);
+//	}
 	// necessary to build a user trackable template: TemplateOccurance occurance, TrackableTemplateStatus templateStatus, long userId, String name, String colorHexValue
 	public void add(UserTrackableFormTemplate userFormTemplate) {
 		trackableFormTemplateRepo.save(userFormTemplate);

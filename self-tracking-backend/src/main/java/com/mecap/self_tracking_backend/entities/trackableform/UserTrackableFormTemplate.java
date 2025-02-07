@@ -18,10 +18,19 @@ public class UserTrackableFormTemplate {
 	private Long userId;
 	private String name;
 	private String colorHexValue;
+	private String description;
 	
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getName() {
 		return name;
 	}
+    public UserTrackableFormTemplate() { }
 
 	public UserTrackableFormTemplate(TemplateOccurance occuranceInterval, TrackableTemplateStatus status,
 			Long userId, String name, String colorHexValue) {
