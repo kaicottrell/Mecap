@@ -2,7 +2,7 @@
   <div class="card custom-modal d-flex w-50 h-50">
     <form (ngSubmit)="handleNewTemplate()" [formGroup]="upsertForm">
       <div class="card-header" [style]="'background-color' + ':' + upsertForm.controls['colorHexValue'].value">
-        <h1 class="text-center">New Form</h1>
+        <h1 class="text-center">{{(formTemplateId() ? 'Update' : 'New') + ' Form'}}</h1>
         <a
           routerLink="../"
           class="position-absolute top-0 end-0 mx-1"

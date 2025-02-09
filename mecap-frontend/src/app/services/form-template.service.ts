@@ -27,5 +27,8 @@ export class FormTemplateService {
   deleteTemplate(templateId: number) {
     return this.httpClient.delete<UserTrackableFormTemplate>(`http://localhost:8080/TrackableFormTemplate/delete-template/${templateId}`);
   }
+  updateTemplate(formTemplate: UserTrackableFormTemplate){
+    return this.httpClient.put<UserTrackableFormTemplate>('http://localhost:8080/TrackableFormTemplate/update-template', formTemplate);
+  }
   
 }

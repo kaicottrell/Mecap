@@ -25,7 +25,7 @@ export class FormTemplateUpsertComponent implements OnInit {
   upsertForm = new FormGroup<{ [key: string]: any }>({
     templateName: new FormControl(''),
     description: new FormControl(''),
-    colorHexValue: new FormControl('#111111'), // color picker
+    colorHexValue: new FormControl(''), // color picker TODO: add validators
     templateOccuranceType: new FormControl<TemplateOccurance>(
       TemplateOccurance.MONTHLY
     ),
@@ -80,7 +80,23 @@ export class FormTemplateUpsertComponent implements OnInit {
       getEnumKeyByValue(TemplateStatus, selectedTmpStatus) ||
       TemplateStatus.ACTIVE;
 
-    this.templateService
+    if(this.formTemplateId()){
+      console.log("Updating");
+      this.templateService.updateTemplate({
+        id: this.formTemplateId()!,
+        occuranceInterval: parsedTmpOcc,
+        status: parsedTmpStatus,
+        userId: 0,
+        name: selectedTmpName,
+        colorHexValue: selectedTmpColor,
+        description: selectedTmpDescription,
+      }).subscribe({
+        next: () => {
+          this.router.navigate(['../']);
+        },
+      });
+    } else { // create
+      this.templateService
       .addUserFormTemplate({
         // occuranceInterval: selectedTmpOccurance,
         // status: selectedTmpStatus,
@@ -96,5 +112,7 @@ export class FormTemplateUpsertComponent implements OnInit {
           this.router.navigate(['../']);
         },
       });
+    }
+  
   }
 }
