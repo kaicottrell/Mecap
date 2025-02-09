@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.hover-expand {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-expand:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+}

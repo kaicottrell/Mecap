@@ -1,18 +1,26 @@
 <div class="row">
-    @for(formTemplate of formTemplateList; track formTemplate.id){
-    <div class="col-3 my-2">
-      <div class="card">
-        <div
-          class="card-header"
-          [style.backgroundColor]="'#' + formTemplate.colorHexValue"
-        >
-          {{ formTemplate.name + "Form" }}
-        </div>
-        <div class="card-body">
-          {{ formTemplate.description || "No Description" }}
-        </div>
-     
+  @for(formTemplate of formTemplateList; track formTemplate.id){
+  <div class="col-6 my-2">
+    <div class="card" >
+      <div
+        class="card-header"
+        [style.backgroundColor]="formTemplate.colorHexValue"
+      >
+        {{ formTemplate.name + "Form" }}
+      </div>
+      <div class="card-body">
+        {{ formTemplate.description || "No Description" }}
+      </div>
+      <div class="card-footer d-flex justify-content-center gap-2">
+        <a  routerLink="../upsert" [queryParams]="{formTemplateId: formTemplate.id}" class="btn btn-warning" >
+          Edit
+        </a>
+        <!-- Add click event are you sure popup to confirm deletion -->
+        <button (click)="deleteTemplate(formTemplate.id)" class="btn btn-danger">
+          Delete
+        </button>
       </div>
     </div>
-    }
+  </div>
+  }
 </div>

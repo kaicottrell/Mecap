@@ -1,36 +1,80 @@
 <div class="d-flex justify-content-center align-items-center">
   <div class="card custom-modal d-flex w-50 h-50">
-    <div class="card-header">
-      <h1 class="text-center">New Template</h1>
-      <a
-        routerLink="../"
-        class="position-absolute top-0 end-0 mx-1"
-        title="close modal"
-      >
-        <i class="bi bi-x-circle"></i>
-    </a>
-    </div>
-    <div class="card-body">
-      <form (ngSubmit)="handleNewTemplate()" [formGroup]="upsertForm">
+    <form (ngSubmit)="handleNewTemplate()" [formGroup]="upsertForm">
+      <div class="card-header" [style]="'background-color' + ':' + upsertForm.controls['colorHexValue'].value">
+        <h1 class="text-center">New Form</h1>
+        <a
+          routerLink="../"
+          class="position-absolute top-0 end-0 mx-1"
+          title="close modal"
+        >
+          <i class="bi bi-x-circle"></i>
+        </a>
+      </div>
+      <div class="card-body">
         <!--TODO: add form grouping (bootstrap docs)-->
         <div class="row">
           <div class="col-6">
-            <label for="template-name">Template Name:</label>
-            <input type="text" name="template-name" placeholder="Enter Name" />
-          </div>
-          <div class="col-6">
-            <label for="template-description">Template Description:</label>
+            <label for="templateName">Form Name:</label>
             <input
               type="text"
-              name="template-description"
-              placeholder="Enter description"
+              name="templateName"
+              placeholder="Enter Name"
+              formControlName="templateName"
             />
           </div>
+          <div class="col-6">
+            <label for="description">Form Description:</label>
+            <input
+              type="text"
+              name="description"
+              placeholder="Enter description"
+              formControlName="description"
+            />
+          </div>
+          <div class="col-6">
+            <label for="colorHexValue">Form Color:</label>
+            <input
+              type="color"
+              name="colorHexValue"
+              formControlName="colorHexValue"
+              title="Pick your color"
+            />
+          </div>
+          <div class="col-6">
+            <label for="templateOccuranceType">Occurance:</label>
+            <select
+              id=""
+              name="templateOccuranceType"
+              title="Select Form Occurance"
+              formControlName="templateOccuranceType"
+            >
+              @for (occuranceType of templateOccuranceTypeTupleArr; track
+              occuranceType) {
+              <option [value]="occuranceType[1]">{{ occuranceType[1] }}</option>
+              }
+            </select>
+          </div>
         </div>
-      </form>
-    </div>
-    <div class="card-footer d-flex justify-content-center">
+        <div class="col-12">
+          <label for="templateStatus">Status:</label>
+          <select
+            id=""
+            name="templateStatus"
+            title="Select Form Status"
+            formControlName="templateStatus"
+          >
+            @for (statusType of templateStatusTypeTupleArr; track statusType) {
+            <option [value]="statusType[1]">{{ statusType[1] }}</option>
+            }
+          </select>
+        </div>
+        <!-- TODO: add dynamic line addition for questions and answers with types to choose from. -->
+      </div>
+      <div class="card-footer d-flex justify-content-center gap-2">
         <a routerLink="../" class="btn btn-danger">Cancel</a>
-    </div>
+        <button type="submit" class="btn btn-success">Create</button>
+      </div>
+    </form>
   </div>
 </div>

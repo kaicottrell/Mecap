@@ -2,7 +2,7 @@ export enum TemplateOccurance{
     DAILY = 'DAILY',
     WEEKLY = 'WEEKLY',
     MONTHLY = 'MONTHLY',
-    BIMONTHLY = 'BIMONTHLY',
+    BIMONTHLY = 'BI-MONTHLY',
     QUARTERLY = 'QUARTERLY',
     YEARLY = 'YEARLY'
 }

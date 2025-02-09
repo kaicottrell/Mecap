@@ -17,7 +17,15 @@ export class FormTemplateService {
     );
   }
   addUserFormTemplate(formTemplateRequest: UserTrackableFormTemplateRequest) {
-    this.httpClient.post('http://localhost:8080/TrackableFormTemplate/create-template', formTemplateRequest)
+    return this.httpClient.post('http://localhost:8080/TrackableFormTemplate/create-template', formTemplateRequest)
+   // return this.httpClient.post('http://localhost:8080/TrackableFormTemplate/create-template', null)
+  }
+  getTemplate(templateId: number) : Observable<UserTrackableFormTemplate> {
+    return this.httpClient.get<UserTrackableFormTemplate>(`http://localhost:8080/TrackableFormTemplate/get-template/${templateId}`);
+  }
+  //TODO: introduce soft deleting by changing the template status to REMOVED
+  deleteTemplate(templateId: number) {
+    return this.httpClient.delete<UserTrackableFormTemplate>(`http://localhost:8080/TrackableFormTemplate/delete-template/${templateId}`);
   }
   
 }

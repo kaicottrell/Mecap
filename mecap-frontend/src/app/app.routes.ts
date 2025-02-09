@@ -10,7 +10,7 @@ export const appRoutes: Routes = [
         component: UserFormTemplatesComponent,
         children: [
             {
-                path: 'create',
+                path: 'upsert',
                 component: FormTemplateUpsertComponent
                 //TODO: new template
             },
